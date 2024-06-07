@@ -1,9 +1,10 @@
+
 function tweenRGB()
 repeat
 local TweenService = game:GetService("TweenService")
-local Button = script.Parent	
-local Goal = {BackgroundColor3 = Color3.new(255, 0, 0)}
-local Tween = TweenService:Create(Button, TweenInfo.new(3), Goal)
+_G.RGB = Color3.new(0, 255, 0)
+local Goal = Color3.new(255, 0, 0)
+local Tween = TweenService:Create(RGB, TweenInfo.new(3), {_G.RGB = Goal})
 Tween:Play()
 until 1 == 2 do
 end	
@@ -22,12 +23,12 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-			Main = Color3.fromRGB(25, 25, 25),
-			Second = Color3.fromRGB(32, 32, 32),
+			Main = _G.RGB,
+			Second = _G.RGB,
 			Stroke = Color3.fromRGB(60, 60, 60),
 			Divider = Color3.fromRGB(60, 60, 60),
-			Text = Color3.fromRGB(240, 240, 240),
-			TextDark = Color3.fromRGB(150, 150, 150)
+			Text = _G.RGB,
+			TextDark = _G.RGB
 		}
 	},
 	SelectedTheme = "Default",
