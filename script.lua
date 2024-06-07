@@ -4,6 +4,7 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
+
 local OrionLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -11,26 +12,31 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-			Main = Color3.fromRGB(0,0,0)
+			Main = Color3.fromRGB(0, 0, 0),
 			Second = Color3.fromRGB(32, 32, 32),
 			Stroke = Color3.fromRGB(60, 60, 60),
 			Divider = Color3.fromRGB(60, 60, 60),
-			Text = Color3.fromRGB(0,0,0),
-			TextDark = Color3.fromRGB(0,0,0)
+			Text = Color3.fromRGB(0, 0, 0),
+			TextDark = Color3.fromRGB(0, 0, 0)
 		}
 	},
 	SelectedTheme = "Default",
 	Folder = nil,
 	SaveCfg = false
 }
-while wait(.1) do
-local hue = (tick() % 10) / 10
-local greenToRedHue = 0.3 + hue * 0.7
-local TheColor = Color3.fromHSV(greenToRedHue, 1, 1)
-OrionLib.Themes.Default.Main = TheColor
-OrionLib.Themes.Default.Text = TheColor
-OrionLib.Themes.Default.TextDark = TheColor
+
+local function getRGBColor()
+	local hue = (tick() % 10) / 10 -- Variando entre 0 e 1 ao longo do tempo
+	local greenToRedHue = 0.3 + hue * 0.7 -- Ajustando a faixa de cores do verde ao vermelho
+	return Color3.fromHSV(greenToRedHue, 1, 1) -- Saturação e valor constantes para cores vivas
 end
+
+RunService.RenderStepped:Connect(function()
+	local TheColor = getRGBColor()
+	OrionLib.Themes.Default.Main = TheColor
+	OrionLib.Themes.Default.Text = TheColor
+	OrionLib.Themes.Default.TextDark = TheColor
+end)
 --Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
 
