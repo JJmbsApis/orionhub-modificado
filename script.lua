@@ -4,13 +4,6 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
-
-_G.RGB = function()
-    local hue = (tick() % 10) / 10
-    local greenToRedHue = 0.3 + hue * 0.7
-    return Color3.fromHSV(greenToRedHue, 1, 1)
-end
-
 local OrionLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -30,14 +23,14 @@ local OrionLib = {
 	Folder = nil,
 	SaveCfg = false
 }
-
-repeat
-OrionLib.Themes.Default.Main = _G.RGB()
-OrionLib.Themes.Default.Text = _G.RGB()
-OrionLib.Themes.Default.TextDark = _G.RGB()
-	task.wait(.2)
-until 1 == 2 do end
-
+while wait(.1) do
+local hue = (tick() % 10) / 10
+local greenToRedHue = 0.3 + hue * 0.7
+local TheColor = Color3.fromHSV(greenToRedHue, 1, 1)
+OrionLib.Themes.Default.Main = TheColor
+OrionLib.Themes.Default.Text = TheColor
+OrionLib.Themes.Default.TextDark = TheColor
+end
 --Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
 
