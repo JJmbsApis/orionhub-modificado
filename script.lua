@@ -1,3 +1,13 @@
+function tweenRGB()
+repeat
+local TweenService = game:GetService("TweenService")
+local Button = script.Parent	
+local Goal = {BackgroundColor3 = Color3.new(255, 0, 0)}
+local Tween = TweenService:Create(Button, TweenInfo.new(3), Goal)
+Tween:Play()
+until 1 == 2 do
+end	
+end
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
