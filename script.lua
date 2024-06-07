@@ -106,7 +106,7 @@ local function MakeDraggable(DragPoint, Main)
 
 				Input.Changed:Connect(function()
 					if Input.UserInputState == Enum.UserInputState.End then
-						Dragging = true
+						Dragging = false
 					end
 				end)
 			end
