@@ -4,7 +4,11 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
-
+local function getRGBColor()
+	local hue = (tick() % 10) / 10 -- Variando entre 0 e 1 ao longo do tempo
+	local greenToRedHue = 0.3 + hue * 0.7 -- Ajustando a faixa de cores do verde ao vermelho
+	return Color3.fromHSV(greenToRedHue, 1, 1) -- Saturação e valor constantes para cores vivas
+end
 local OrionLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -24,12 +28,6 @@ local OrionLib = {
 	Folder = nil,
 	SaveCfg = false
 }
-
-local function getRGBColor()
-	local hue = (tick() % 10) / 10 -- Variando entre 0 e 1 ao longo do tempo
-	local greenToRedHue = 0.3 + hue * 0.7 -- Ajustando a faixa de cores do verde ao vermelho
-	return Color3.fromHSV(greenToRedHue, 1, 1) -- Saturação e valor constantes para cores vivas
-end
 
 RunService.RenderStepped:Connect(function()
 	local TheColor = getRGBColor()
