@@ -31,12 +31,12 @@ local OrionLib = {
 	SaveCfg = false
 }
 
-RunService.RenderStepped:Connect(function()
-	OrionLib.Themes.Default.Main = _G.RGB()
-	OrionLib.Themes.Default.Second = _G.RGB()
-	OrionLib.Themes.Default.Text = _G.RGB()
-	OrionLib.Themes.Default.TextDark = _G.RGB()
-end)
+repeat
+OrionLib.Themes.Default.Main = _G.RGB()
+OrionLib.Themes.Default.Text = _G.RGB()
+OrionLib.Themes.Default.TextDark = _G.RGB()
+	task.wait(.2)
+until 1 == 2 do end
 
 --Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
